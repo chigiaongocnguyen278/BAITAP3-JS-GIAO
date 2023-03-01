@@ -60,6 +60,7 @@ body {
   font-size: 16px;
 
 }
+
 input.SwapIndex1,input.SwapIndex2{
   border: none;
   background-color:#b2c2de;
@@ -77,11 +78,11 @@ input.SwapIndex1::placeholder, input.SwapIndex2::placeholder{
 
   background-image: linear-gradient(45deg, #141E30 0%, #243B55 100%);
 
-  color: white;
+  color: #ffffff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: width 0.5s;
+  
   border-radius: 0.5s;
 }
 .btn1:focus {
@@ -89,7 +90,7 @@ input.SwapIndex1::placeholder, input.SwapIndex2::placeholder{
   background-image: linear-gradient(45deg, #00C9FF 0%, #92FE9D 100%);
   border-radius: 50px;
   color: #000000;
-  padding : 1rem 1rem;
+  padding : 0.7rem 1.2rem;
 }
 .txtOutput{
   border: 0;

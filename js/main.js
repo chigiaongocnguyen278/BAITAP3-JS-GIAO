@@ -5,16 +5,12 @@ var array = [];
 
 function addNumberToArray (){
     var number = Number( document.getElementById("InputArray").value);
-   
 
     array.push (number);
 
     document.querySelector("#txtArray").innerHTML = array ;
 
     }
-
-
-
 
 document.querySelector("#btnAddNumber").onclick = addNumberToArray;
 
@@ -28,9 +24,10 @@ document.querySelector("#btnAddNumber").onclick = addNumberToArray;
  *      + tạo hàm tính tổng số dương 
  *      + gán hàm vào sự kiện click của button 
         B2: trong hàm :
-        *      Duyệt mảng, tìm số dương ( thỏa điều kiện >0)
-         
+        *      Duyệt mảng, tìm số dương ( thỏa điều kiện >0)  
         *     Tạo công thức tính tổng các số dương
+        *     Nếu duyệt hết mảng mà không có số dương nào => trả về 0
+
  *      B3: hiển thị kết quả
  * Khối 3: output
  *  tổng số dương 
@@ -62,12 +59,12 @@ document.querySelector("#btnTotal").onclick = toSum;
  *      + tạo hàm đếm số dương
  *      + gán hàm vào sự kiện click của button 
         B2: trong hàm :
-        *      Duyệt mảng, tìm số dương ( thỏa điều kiện >0)
-         
-        *     Tạo công thức đếm các số dương
+        *      Tạo biến đếm số dương
+        *      Duyệt mảng, tìm số dương ( thỏa điều kiện >0 => biến đếm tăng lên 1)
+        *     Nếu duyệt hết mảng mà không có số dương nào => trả về 0
  *      B3: hiển thị kết quả
  * Khối 3: output
- *  đếm  số dương 
+ *    số dương đếm được
  */
 
 function toCount(){
@@ -78,7 +75,7 @@ function toCount(){
             ++count;
         }
     }
-    document.querySelector(".result2").innerHTML =` Đếm số dương : ${count}`;  
+    document.querySelector(".result2").innerHTML =`Số dương : ${count}`;  
 }
 
 document.querySelector("#btnCount").onclick = toCount;
@@ -93,12 +90,10 @@ document.querySelector("#btnCount").onclick = toCount;
  *      + tạo hàm tìm số nhỏ nhất
  *      + gán hàm vào sự kiện click của button 
         B2: trong hàm :
-           2.1 Giả sử số nhỏ nhất - min : là số ở vị trí đầu tiên (index =0)
-
- *         2.2 Duyệt mảng : lấy từng số trong mảng so sánh với min
+           *   Giả sử số nhỏ nhất - min : là số ở vị trí đầu tiên (index =0)
+           *  Duyệt mảng : lấy từng số trong mảng so sánh với min
                Nếu có số nhỏ hơn => lưu số nhỏ hơn vào min
-           2.3 Hét mảng => số nhỏ nhất được chứa trong biến min   
-    
+           *  Hét mảng => số nhỏ nhất được chứa trong biến min   
  *      B3: hiển thị kết quả
  * Khối 3: output
  *  số nhỏ nhất
@@ -128,17 +123,16 @@ document.querySelector("#btnMin").onclick = toFindMin;
  *      + gán hàm vào sự kiện click của button 
         B2: trong hàm :
            
-           2.1 Tạo thêm 1 mảng mới dùng để chứa các số dương
-           2.2 Lấy các số dương từ mảng cũ và lưu vào trong mảng mới
-           2.3 Kiểm tra mảng mới có phần tử hay không. Nếu có thì bắt đầu đi tìm giá trị dương nhỏ nhất. Ngược lại thì thông báo không có số dương
-    
+        Tạo thêm 1 mảng mới dùng để chứa các số dương
+           *  Lấy các số dương từ mảng cũ và lưu vào trong mảng mới
+           *  Kiểm tra mảng mới có phần tử hay không.
+              Nếu có thì bắt đầu đi tìm giá trị dương nhỏ nhất.
+              Ngược lại thì thông báo không có số dương
  *      B3: hiển thị kết quả
  * Khối 3: output
+ *  số dương nhỏ nhất
  *  
  */
-
-
-
 
 function toFindMinPositiveNum(){
     var newArray1 = array.filter(item => item > 0);
@@ -169,10 +163,9 @@ document.querySelector("#btnMinPositive").onclick = toFindMinPositiveNum;
  *      + tạo hàm tìm số chẵn cuối cùng
  *      + gán hàm vào sự kiện click của button 
         B2: trong hàm :
-           2.1 Tạo thêm 1 mảng mới dùng để chứa các số chẵn. Nếu không có thì trả về -1
-           2.2 Lấy các số chẵn từ mảng cũ và lưu vào trong mảng mới
- *         2.3 Tìm số chẵn có index lớn nhất 
-          
+              * Tạo thêm 1 mảng mới dùng để chứa các số chẵn. Nếu không có thì trả về -1
+              * Lấy các số chẵn từ mảng cũ và lưu vào trong mảng mới
+              * Tìm số chẵn có index lớn nhất     
  *      B3: hiển thị kết quả
  * Khối 3: output
  *  số chẵn cuối cùng
@@ -217,24 +210,15 @@ document.querySelector("#btnEvenNum").onclick = findLastEvenNum;
 
 function toSwap(){
 
-
     var index1 = Number(document.querySelector(".SwapIndex1").value);
     var index2 = Number(document.querySelector(".SwapIndex2").value);
 
      [ array[index1], array[index2]]=[array[index2], array[index1]];
 
-   
     document.querySelector(".result6").innerHTML =`Mảng sau khi đổi chỗ : ${array}`;  
-
-
 }
 
-
 document.querySelector("#btnSwap").onclick = toSwap;
-
-
-
-
 
 
 // 7. Sắp xếp tăng dần
@@ -247,7 +231,7 @@ document.querySelector("#btnSwap").onclick = toSwap;
  *      + tạo hàm sắp xếp tăng dần
  *      + gán hàm vào sự kiện click của button 
         B2: trong hàm :    
-            Gọi hàm sắp xếp của JS (.sort() và truyền vào ham này callback function để sắp xếp tăng dần) 
+            Gọi hàm sắp xếp của JS .sort() và truyền vào ham này callback function để sắp xếp tăng dần
  *      B3: hiển thị kết quả
  * Khối 3: output
  *  hàm được sắp xếp theo thứ tự tăng dần
@@ -275,7 +259,7 @@ document.querySelector("#btnSortArray").onclick = sortArray;
         B2: trong hàm :   
            2.1 Tạo hàm kiêm tra 1 số có phải số nguyên tố hay không
            2.2 Trong hàm tìm số nguyên tố đầu tiên:
-         Duyệt mảng => phần tử nào có giá trị thỏa mãn hàm kiểm tra trên thì dừng hàm, không duyệt tiếp mảng
+         Duyệt mảng => phần tử nào có giá trị thỏa mãn hàm kiểm tra trên => dừng hàm, không duyệt tiếp mảng
          Nếu duyệt hết mảng mà không có số nguyên => trả về -1         
  *      B3: hiển thị kết quả
  * Khối 3: output
@@ -283,37 +267,31 @@ document.querySelector("#btnSortArray").onclick = sortArray;
  */
 
 
-
+//  check if a number is prime
 function isPrime(num){
 //false : not prime number
 //true   : prime number
-
            if (isNaN(num) || !isFinite(num) || num % 1 || num <2) return false;
-
            for (let i= 2; Math.sqrt(num) >= i; i++) {
                  if (num % i == 0) {
                      return false;
                     }
-            }
-            return true;
+                }
+                    return true;
  }
 
-
- 
+//  find first Prim Number
 function findFirstPrime (){
 
     for (let i = 0; i < array.length; i++){
 
         if (isPrime(array[i])) {
-          document.querySelector(".result8").innerHTML =`Số nguyên tố đầu tiên : ${ array[i]}`;
+             document.querySelector(".result8").innerHTML =`Số nguyên tố đầu tiên : ${ array[i]}`;
              break;
-
         } else{
-                 document.querySelector(".result8").innerHTML = -1;
-        }
-        
+             document.querySelector(".result8").innerHTML = -1;
+        }        
       }
-
 }
 
 document.querySelector("#btnPrimeNum").onclick =  findFirstPrime ;
@@ -332,11 +310,11 @@ document.querySelector("#btnPrimeNum").onclick =  findFirstPrime ;
         B2: trong hàm :   
            2.1 Tạo biến đếm số nguyên
            2.2 
-         Duyệt mảng => phần tử nào có giá trị thỏa mãn hàm Number.Integer() là true thì tăng biến đếm số nguyên lên 1
+         Duyệt mảng => phần tử nào có giá trị thỏa mãn hàm Number.Integer() là true => tăng biến đếm số nguyên lên 1
          Nếu duyệt hết mảng mà không có số nguyên => trả về 0      
  *      B3: hiển thị kết quả
  * Khối 3: output
- *  số nguyên tố đầu tiên
+ *  số nguyên đếm được
  */
 
 function toCountInteger(){
@@ -344,13 +322,10 @@ function toCountInteger(){
     for (let i = 0; i < array.length; i++) {
        if (Number.isInteger(array[i])){
         ++countInt;
-
        }
-
     }
     document.querySelector(".result9").innerHTML =`Số nguyên : ${countInt}`;  
 }
-
 document.querySelector("#btnCountInteger").onclick = toCountInteger;
 
 
